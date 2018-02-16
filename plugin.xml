@@ -5,29 +5,42 @@
     <license>MIT</license>
     <author>WINTER</author>
     <keywords>cordova,ionic,android,window background,color,background,window,theme,styles.xml</keywords>
-	
+
 	<engines>
-	  <engine name="cordova-android" version=">=7.0.0" />
+	  <engine name="cordova-android" version=">=6.3.0" />
 	</engines>
 
   	<platform name="android">
   		<preference name="WINDOW_BACKGROUND_COLOR" />
 
   		<edit-config file="AndroidManifest.xml" target="/manifest/application/activity[@android:name='MainActivity']" mode="merge">
-  			<activity android:name="MainActivity" android:theme="@style/CordovaWindowBackgroundTheme"/>
+        <activity android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale" android:label="@string/activity_name" android:launchMode="singleTop" android:name="MainActivity" android:theme="@style/CordovaWindowBackgroundTheme.Launcher" android:windowSoftInputMode="adjustResize"/>
+  			<!-- <activity android:name="MainActivity" android:theme="@style/CordovaWindowBackgroundTheme.Launcher"/> -->
   		</edit-config>
 
-  		<source-file src="cordova-window-background-strings.xml" target-dir="app/src/main/res/values" />
-  		<source-file src="cordova-window-background-styles.xml" target-dir="app/src/main/res/values" />
+      <source-file src="cordova_window_background_strings.xml" target-dir="res/values" />
+      <source-file src="cordova_window_background_styles.xml" target-dir="res/values" />
+  		<source-file src="cordova_window_background_launch_screen.xml" target-dir="res/drawable-mdpi" />
 
-  		<config-file target="app/src/main/res/values/cordova-window-background-strings.xml" parent="/*">
+  		<config-file target="res/values/cordova_window_background_strings.xml" parent="/*">
   			<color name="cordova_window_background">$WINDOW_BACKGROUND_COLOR</color>
   		</config-file>
 
-  		<config-file target="app/src/main/res/values/cordova-window-background-styles.xml" parent="/*">
-  			<style name="CordovaWindowBackgroundTheme" parent="@android:style/Theme.NoTitleBar">
-  				<item name="android:windowBackground">@color/cordova_window_background</item>
-  			</style>
+  		<config-file target="res/drawable-mdpi/cordova_window_background_launch_screen.xml" parent="/*">
+        <item android:drawable="@color/cordova_window_background"/>
+
+        <!-- offset by dialog title height to have centered with cordova splash screen plugin -->
+        <item android:top="24dip">
+          <bitmap android:src="@drawable/screen" android:gravity="center"/>
+        </item>
+  		</config-file>
+
+  		<config-file target="res/values/cordova_window_background_styles.xml" parent="/*">
+        <style name="CordovaWindowBackgroundTheme" parent="@android:style/Theme.NoTitleBar">
+        </style>
+        <style name="CordovaWindowBackgroundTheme.Launcher">
+          <item name="android:windowBackground">@drawable/cordova_window_background_launch_screen</item>
+        </style>
   		</config-file>
   	</platform>
 </plugin>
