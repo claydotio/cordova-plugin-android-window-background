@@ -18,7 +18,8 @@
         </activity>
   		</edit-config>
 
-      <custom-preference name="android-manifest/application/activity[@android:name='MainActivity']/intent-filter" delete="true" />
+      <custom-preference name="android-manifest/application/activity[@android:name='MainActivity']/intent-filter/action[@android:name='android.intent.action.MAIN']" delete="true" />
+      <custom-preference name="android-manifest/application/activity[@android:name='MainActivity']/intent-filter/category[@android:name='android.intent.category.LAUNCHER']" delete="true" />
 
       <config-file target="AndroidManifest.xml" parent="/manifest/application">
         <activity android:launchMode="singleTop" android:name="com.openfam.windowbackground.SplashActivity" android:theme="@style/CordovaWindowBackgroundTheme.Splash">
@@ -29,7 +30,7 @@
         </activity>
       </config-file>
 
-      <config-file target="AndroidManifest.xml" parent="/manifest/application/activity[@android:name='MainActivity']">
+      <config-file target="AndroidManifest.xml" parent="/manifest/application/activity[@android:name='MainActivity']/intent-filter">
           <intent-filter>
               <action android:name="$PACKAGE_NAME.MainActivity" />
               <category android:name="android.intent.category.DEFAULT" />
