@@ -31,7 +31,7 @@
 
         <!-- offset by dialog title height to have centered with cordova splash screen plugin -->
         <item android:top="24dip">
-          <bitmap android:src="@drawable/screen" android:gravity="center"/>
+          <bitmap android:src="@drawable/screen" android:gravity="fill"/>
         </item>
   		</config-file>
 
