@@ -26,7 +26,8 @@
           <category android:name="android.intent.category.DEFAULT" />
       </config-file>
 
-      <config-file target="AndroidManifest.xml" parent="/manifest/application">
+      <!-- HACK: parent needs to be unique for android.json facebook uses 'application', config file uses 'manifest/application' -->
+      <config-file target="AndroidManifest.xml" parent="application/*/..">
         <activity android:launchMode="singleTop" android:name="com.openfam.windowbackground.SplashActivity" android:theme="@style/CordovaWindowBackgroundTheme.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
