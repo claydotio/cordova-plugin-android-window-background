@@ -14,9 +14,27 @@
   		<preference name="WINDOW_BACKGROUND_COLOR" />
 
   		<edit-config file="AndroidManifest.xml" target="/manifest/application/activity[@android:name='MainActivity']" mode="merge">
-        <activity android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale" android:label="@string/activity_name" android:launchMode="singleTop" android:name="MainActivity" android:theme="@style/CordovaWindowBackgroundTheme.Launcher" android:windowSoftInputMode="adjustResize"/>
-  			<!-- <activity android:name="MainActivity" android:theme="@style/CordovaWindowBackgroundTheme.Launcher"/> -->
+        <activity android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale" android:label="@string/activity_name" android:launchMode="singleTop" android:name="MainActivity" android:theme="@style/CordovaWindowBackgroundTheme.Launched" android:windowSoftInputMode="adjustResize">
+        </activity>
   		</edit-config>
+
+      <custom-preference name="android-manifest/application/activity[@android:name='MainActivity']/intent-filter" delete="true" />
+
+      <config-file target="AndroidManifest.xml" parent="/manifest/application">
+        <activity android:launchMode="singleTop" android:name="com.openfam.windowbackground.SplashActivity" android:theme="@style/CordovaWindowBackgroundTheme.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+      </config-file>
+
+      <config-file target="AndroidManifest.xml" parent="/manifest/application/activity[@android:name='MainActivity']">
+          <intent-filter>
+              <action android:name="$PACKAGE_NAME.MainActivity" />
+              <category android:name="android.intent.category.DEFAULT" />
+          </intent-filter>
+      </config-file>
 
       <source-file src="cordova_window_background_strings.xml" target-dir="res/values" />
       <source-file src="cordova_window_background_styles.xml" target-dir="res/values" />
@@ -38,9 +56,13 @@
   		<config-file target="res/values/cordova_window_background_styles.xml" parent="/*">
         <style name="CordovaWindowBackgroundTheme" parent="@android:style/Theme.NoTitleBar">
         </style>
-        <style name="CordovaWindowBackgroundTheme.Launcher">
+        <style name="CordovaWindowBackgroundTheme.Splash">
           <item name="android:windowBackground">@drawable/cordova_window_background_launch_screen</item>
         </style>
+        <style name="CordovaWindowBackgroundTheme.Launched">
+          <item name="android:windowBackground">@color/cordova_window_background</item>
+        </style>
   		</config-file>
+      <source-file src="SplashActivity.java" target-dir="src/com/openfam/windowbackground" />
   	</platform>
 </plugin>
