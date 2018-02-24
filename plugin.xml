@@ -31,10 +31,8 @@
       </config-file>
 
       <config-file target="AndroidManifest.xml" parent="/manifest/application/activity[@android:name='MainActivity']/intent-filter">
-          <intent-filter>
-              <action android:name="$PACKAGE_NAME.MainActivity" />
-              <category android:name="android.intent.category.DEFAULT" />
-          </intent-filter>
+          <action android:name="$PACKAGE_NAME.MainActivity" />
+          <category android:name="android.intent.category.DEFAULT" />
       </config-file>
 
       <source-file src="cordova_window_background_strings.xml" target-dir="res/values" />
