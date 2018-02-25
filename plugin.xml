@@ -63,6 +63,6 @@
           <item name="android:windowBackground">@color/cordova_window_background</item>
         </style>
   		</config-file>
-      <source-file src="SplashActivity.java" target-dir="app/src/main/src/com/openfam/windowbackground" />
+      <source-file src="SplashActivity.java" target-dir="app/src/main/java/com/openfam/windowbackground" />
   	</platform>
 </plugin>
