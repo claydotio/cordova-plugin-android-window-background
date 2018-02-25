@@ -36,15 +36,15 @@
         </activity>
       </config-file>
 
-      <source-file src="cordova_window_background_strings.xml" target-dir="res/values" />
-      <source-file src="cordova_window_background_styles.xml" target-dir="res/values" />
-  		<source-file src="cordova_window_background_launch_screen.xml" target-dir="res/drawable" />
+      <source-file src="cordova_window_background_strings.xml" target-dir="app/src/main/res/values" />
+      <source-file src="cordova_window_background_styles.xml" target-dir="app/src/main/res/values" />
+  		<source-file src="cordova_window_background_launch_screen.xml" target-dir="app/src/main/res/drawable" />
 
-  		<config-file target="res/values/cordova_window_background_strings.xml" parent="/*">
+  		<config-file target="app/src/main/res/values/cordova_window_background_strings.xml" parent="/*">
   			<color name="cordova_window_background">$WINDOW_BACKGROUND_COLOR</color>
   		</config-file>
 
-  		<config-file target="res/drawable/cordova_window_background_launch_screen.xml" parent="/*">
+  		<config-file target="app/src/main/res/drawable/cordova_window_background_launch_screen.xml" parent="/*">
         <item android:drawable="@color/cordova_window_background"/>
 
         <!-- offset by dialog title height to have centered with cordova splash screen plugin -->
@@ -53,7 +53,7 @@
         </item>
   		</config-file>
 
-  		<config-file target="res/values/cordova_window_background_styles.xml" parent="/*">
+  		<config-file target="app/src/main/res/values/cordova_window_background_styles.xml" parent="/*">
         <style name="CordovaWindowBackgroundTheme" parent="@android:style/Theme.NoTitleBar">
         </style>
         <style name="CordovaWindowBackgroundTheme.Splash">
