@@ -18,12 +18,13 @@
         </activity>
   		</edit-config>
 
-      <custom-preference name="android-manifest/application/activity[@android:name='MainActivity']/intent-filter/action[@android:name='android.intent.action.MAIN']" delete="true" />
-      <custom-preference name="android-manifest/application/activity[@android:name='MainActivity']/intent-filter/category[@android:name='android.intent.category.LAUNCHER']" delete="true" />
+      <custom-preference name="android-manifest/application/activity[@android:name='MainActivity']/intent-filter[android:label='@string/launcher_name']" delete="true" />
 
-      <config-file target="app/src/main/AndroidManifest.xml" parent="/manifest/application/activity[@android:name='MainActivity']/intent-filter">
+      <config-file target="app/src/main/AndroidManifest.xml" parent="/manifest/application/activity[@android:name='MainActivity']">
+        <intent-filter>
           <action android:name="$PACKAGE_NAME.MainActivity" />
           <category android:name="android.intent.category.DEFAULT" />
+        </intent-filter>
       </config-file>
 
       <!-- HACK: parent needs to be unique for android.json facebook uses 'application', config file uses 'manifest/application' -->
