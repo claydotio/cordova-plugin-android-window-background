@@ -13,7 +13,7 @@
   	<platform name="android">
   		<preference name="WINDOW_BACKGROUND_COLOR" />
 
-  		<edit-config file="AndroidManifest.xml" target="/manifest/application/activity[@android:name='MainActivity']" mode="merge">
+  		<edit-config file="app/src/main/AndroidManifest.xml" target="/manifest/application/activity[@android:name='MainActivity']" mode="merge">
         <activity android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale" android:label="@string/activity_name" android:launchMode="singleTop" android:name="MainActivity" android:theme="@style/CordovaWindowBackgroundTheme.Launched" android:windowSoftInputMode="adjustResize">
         </activity>
   		</edit-config>
@@ -21,13 +21,13 @@
       <custom-preference name="android-manifest/application/activity[@android:name='MainActivity']/intent-filter/action[@android:name='android.intent.action.MAIN']" delete="true" />
       <custom-preference name="android-manifest/application/activity[@android:name='MainActivity']/intent-filter/category[@android:name='android.intent.category.LAUNCHER']" delete="true" />
 
-      <config-file target="AndroidManifest.xml" parent="/manifest/application/activity[@android:name='MainActivity']/intent-filter">
+      <config-file target="app/src/main/AndroidManifest.xml" parent="/manifest/application/activity[@android:name='MainActivity']/intent-filter">
           <action android:name="$PACKAGE_NAME.MainActivity" />
           <category android:name="android.intent.category.DEFAULT" />
       </config-file>
 
       <!-- HACK: parent needs to be unique for android.json facebook uses 'application', config file uses 'manifest/application' -->
-      <config-file target="AndroidManifest.xml" parent="application/*/..">
+      <config-file target="app/src/main/AndroidManifest.xml" parent="application/*/..">
         <activity android:launchMode="singleTop" android:name="com.openfam.windowbackground.SplashActivity" android:theme="@style/CordovaWindowBackgroundTheme.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
