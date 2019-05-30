@@ -27,8 +27,8 @@
         </intent-filter>
       </config-file>
 
-      <!-- HACK: parent needs to be unique for android.json facebook uses 'application', config file uses 'manifest/application' -->
-      <config-file target="app/src/main/AndroidManifest.xml" parent="application/*/..">
+      <!-- TODO: parent needs to be unique for android.json facebook uses 'application', config file uses 'manifest/application' -->
+      <config-file target="app/src/main/AndroidManifest.xml" parent="application">
         <activity android:launchMode="singleTop" android:name="com.openfam.windowbackground.SplashActivity" android:theme="@style/CordovaWindowBackgroundTheme.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -43,10 +43,11 @@
 
   		<config-file target="app/src/main/res/values/cordova_window_background_strings.xml" parent="/*">
   			<color name="cordova_window_background">$WINDOW_BACKGROUND_COLOR</color>
+  			<color name="cordova_splash_background">$SPLASH_BACKGROUND_COLOR</color>
   		</config-file>
 
   		<config-file target="app/src/main/res/drawable/cordova_window_background_launch_screen.xml" parent="/*">
-        <item android:drawable="@color/cordova_window_background"/>
+        <item android:drawable="@color/cordova_splash_background"/>
 
         <!-- offset by dialog title height to have centered with cordova splash screen plugin -->
         <item android:top="24dip">
