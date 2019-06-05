@@ -12,6 +12,7 @@
 
   	<platform name="android">
   		<preference name="WINDOW_BACKGROUND_COLOR" />
+  		<preference name="SPLASH_BACKGROUND_COLOR" />
 
   		<edit-config file="app/src/main/AndroidManifest.xml" target="/manifest/application/activity[@android:name='MainActivity']" mode="merge">
         <activity android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale" android:label="@string/activity_name" android:launchMode="singleTop" android:name="MainActivity" android:theme="@style/CordovaWindowBackgroundTheme.Launched" android:windowSoftInputMode="adjustResize">
