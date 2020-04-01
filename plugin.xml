@@ -28,8 +28,7 @@
         </intent-filter>
       </config-file>
 
-      <!-- TODO: parent needs to be unique for android.json facebook uses 'application', config file uses 'manifest/application' -->
-      <config-file target="app/src/main/AndroidManifest.xml" parent="application">
+      <config-file target="app/src/main/AndroidManifest.xml" parent="/manifest/application">
         <activity android:launchMode="singleTop" android:name="com.openfam.windowbackground.SplashActivity" android:theme="@style/CordovaWindowBackgroundTheme.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
